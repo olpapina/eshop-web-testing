@@ -1,59 +1,90 @@
 package com.solvd.eshop.page;
 
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.solvd.eshop.elements.ProductMenuBar;
+import com.solvd.eshop.elements.SearchSection;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends AbstractPage{
+public class HomePage extends AbstractPage {
 
-    @FindBy(css = ".styles_reactButton__2olKd")
-    private WebElement cookieButton;
+    @FindBy(xpath = "//*[contains(@class,'styles_primaryButton__30pEq')]")
+    private ExtendedWebElement cookieButton;
 
-    @FindBy(css = ".styles_userToolsToggler__imcSl")
-    private WebElement accountMenu;
+    @FindBy(xpath = "//*[contains(@class,'styles_userToolsToggler__imcSl')]")
+    private ExtendedWebElement accountMenu;
 
     @FindBy(css = ".userToolsBtn")
-    private WebElement loginButton;
+    private ExtendedWebElement loginButton;
 
-    @FindBy (css = ".styles_userTools__2J7cp.undefined")
-    private WebElement accountMenuAfterLogin;
+    @FindBy(css = ".styles_userTools__2J7cp.undefined")
+    private ExtendedWebElement accountMenuAfterLogin;
 
     @FindBy(css = ".userToolsSubtitle")
-    private WebElement userToolsTitle;
+    private ExtendedWebElement userToolsTitle;
+
+    @FindBy(xpath =  "//*[contains(@class,'styles_headerReactWrapper__3U15a') and contains(@class,'styles_headerReactWrapperAlt__3bM5y')]")
+    private ProductMenuBar ProductMenuBar;
+
+    @FindBy(xpath = "//*[contains(@class,'styles_headerReactLine__IWu_8') and contains(@class,'styles_headerReactLineSecond__tp1U0')]")
+    private SearchSection SearchSection;
 
     public HomePage(WebDriver driver) {
         super(driver);
+        setPageURL("");
     }
 
     public void clickCookieButton() {
-        if (cookieButton.isDisplayed()) {
-            elementClick(cookieButton);
-        }
+        cookieButton.click();
     }
 
     public void clickAccountMenu() {
-        if (accountMenu.isDisplayed()) {
-            elementClick(accountMenu);
-        }
+        accountMenu.click();
     }
 
     public LoginPage clickLoginButton() {
-        waitIsClickable(5, loginButton);
-        if (loginButton.isDisplayed()) {
-            elementClick(loginButton);
+        if (loginButton.isElementPresent() & loginButton.isClickable()) {
+            loginButton.click();
         }
-        return new LoginPage(driver);
+        return new LoginPage(getDriver());
     }
 
     public void clickAccountMenuAfterLogin() {
-        waitIsClickable(5, accountMenuAfterLogin);
-        if (accountMenuAfterLogin.isDisplayed()) {
-            elementClick(accountMenuAfterLogin);
+        if (accountMenuAfterLogin.isElementPresent() & accountMenuAfterLogin.isClickable()) {
+            accountMenuAfterLogin.click();
         }
     }
 
     public String getAccountInfo() {
-        waitIsClickable(5, userToolsTitle);
         return userToolsTitle.getText();
+    }
+
+    public ExtendedWebElement getCookieButton() {
+        return cookieButton;
+    }
+
+    public ExtendedWebElement getAccountMenu() {
+        return accountMenu;
+    }
+
+    public ExtendedWebElement getLoginButton() {
+        return loginButton;
+    }
+
+    public ExtendedWebElement getAccountMenuAfterLogin() {
+        return accountMenuAfterLogin;
+    }
+
+    public ExtendedWebElement getUserToolsTitle() {
+        return userToolsTitle;
+    }
+
+    public ProductMenuBar getProductMenuBar() {
+        return ProductMenuBar;
+    }
+
+    public SearchSection getSearchSection() {
+        return SearchSection;
     }
 }

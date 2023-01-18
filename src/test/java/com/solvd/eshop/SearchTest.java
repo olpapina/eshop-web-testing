@@ -1,6 +1,8 @@
 package com.solvd.eshop;
 
+import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.solvd.eshop.elements.ProductMenuBar;
+import com.solvd.eshop.elements.SideBar;
 import com.solvd.eshop.page.BrandProductPage;
 import com.solvd.eshop.page.ProductPage;
 import com.solvd.eshop.page.HomePage;
@@ -29,9 +31,10 @@ public class SearchTest extends AbstractTest {
 
     @Test(testName = "verify that results contains input text")
     public void verifySearchTextTypeResultsTest() {
-        HomePage homePage = new HomePage(getWebdriver());
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
         homePage.clickCookieButton();
-        SearchSection searchSection = new SearchSection(getWebdriver());
+        SearchSection searchSection = homePage.getSearchSection();
         String inputText = "Ломтерезка";
         searchSection.typeTextInSearch(inputText);
         ResultPage resultPage = searchSection.clickSearchButton();
@@ -44,12 +47,14 @@ public class SearchTest extends AbstractTest {
 
     @Test(testName = "verify advance search that product brand will be found in results", dataProvider = "productBrandData")
     public void verifyAdvanceSearchItemBrandTest(String product, String brand) {
-        HomePage homePage = new HomePage(getWebdriver());
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
         homePage.clickCookieButton();
-        ProductMenuBar productMenuBar = new ProductMenuBar(getWebdriver());
+        ProductMenuBar productMenuBar = homePage.getProductMenuBar();
         ProductPage productPage = productMenuBar.selectProduct(product);
-        productPage.selectCheckbox(brand);
-        BrandProductPage brandProductPage = productPage.clickShowProductsButton();
+        SideBar sideBar = productPage.getSideBar();
+        sideBar.selectCheckbox(brand);
+        BrandProductPage brandProductPage = sideBar.clickShowProductsButton();
         List<String> resultNames = brandProductPage.getFullNames();
 
         SoftAssert sa = new SoftAssert();
@@ -59,13 +64,15 @@ public class SearchTest extends AbstractTest {
 
     @Test(testName = "verify advance search that product price in selected interval", dataProvider = "productPrice")
     public void verifyAdvanceSearchPriceOfResultTest(String product, String minPrice, String maxPrice) {
-        HomePage homePage = new HomePage(getWebdriver());
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
         homePage.clickCookieButton();
-        ProductMenuBar productMenuBar = new ProductMenuBar(getWebdriver());
+        ProductMenuBar productMenuBar = homePage.getProductMenuBar();
         ProductPage productPage = productMenuBar.selectProduct(product);
-        productPage.typeMinPriceField(minPrice);
-        productPage.typeMaxPriceField(maxPrice);
-        BrandProductPage brandProductPage = productPage.clickShowProductsButton();
+        SideBar sideBar = productPage.getSideBar();
+        sideBar.typeMinPriceField(minPrice);
+        sideBar.typeMaxPriceField(maxPrice);
+        BrandProductPage brandProductPage = sideBar.clickShowProductsButton();
         List<String> resultPrices = brandProductPage.getResultPrices();
         List<Double> prices = brandProductPage.getPrices(resultPrices);
 

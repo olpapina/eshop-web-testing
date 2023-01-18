@@ -9,6 +9,7 @@ target/
 *.iml
 *.ipr
 screenshots/
+reports/
 log/
 ### Eclipse ###
 .apt_generated

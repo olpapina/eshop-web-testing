@@ -1,7 +1,8 @@
 package com.solvd.eshop.page;
 
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -9,15 +10,20 @@ import java.util.stream.Collectors;
 
 public class ResultPage extends AbstractPage {
     @FindBy(css = ".result__name")
-    List<WebElement> searchResultItems;
+    private List<ExtendedWebElement> searchResultItems;
 
     public ResultPage(WebDriver driver) {
         super(driver);
+        setPageURL("");
     }
 
     public List<String> getFullNames() {
         return searchResultItems.stream()
-                .map(WebElement::getText)
+                .map(ExtendedWebElement::getText)
                 .collect(Collectors.toList());
+    }
+
+    public List<ExtendedWebElement> getSearchResultItems() {
+        return searchResultItems;
     }
 }
