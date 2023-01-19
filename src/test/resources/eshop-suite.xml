@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Verify 21vek.by" parallel="tests" thread-count="1">
+
+    <test name = "ChromeTest - Account section test" parallel="methods" thread-count="2">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name = "com.solvd.webtesting.AccountSectionTest" />
+        </classes>
+    </test>
+    <test name = "ChromeTest - Search test" parallel="methods" thread-count="4">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name = "com.solvd.webtesting.SearchTest" />
+        </classes>
+    </test>
+    <test name = "FirefoxTest - Account section test" parallel="methods" thread-count="2">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name = "com.solvd.webtesting.AccountSectionTest" />
+        </classes>
+    </test>
+    <test name = "FirefoxTest - Search test" parallel="methods" thread-count="4">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name = "com.solvd.webtesting.SearchTest" />
+        </classes>
+    </test>
+
+</suite>
