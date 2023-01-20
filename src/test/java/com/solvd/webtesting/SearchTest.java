@@ -1,6 +1,6 @@
 package com.solvd.webtesting;
 
-import com.qaprosoft.carina.core.foundation.AbstractTest;
+import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.webtesting.elements.ProductMenuBar;
 import com.solvd.webtesting.elements.SideBar;
 import com.solvd.webtesting.page.BrandProductPage;
@@ -13,25 +13,13 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class SearchTest extends AbstractTest {
-    @DataProvider(name = "productBrandData")
-    public Object[][] dataBrand() {
-        return new Object[][]{
-                {"Холодильники", "LG"},
-                {"Пылесосы", "Karcher"}
-        };
-    }
+import static com.solvd.webtesting.utils.CapabilityFactory.getCapabilities;
 
-    @DataProvider(name = "productPrice")
-    public Object[][] dataPrice() {
-        return new Object[][]{
-                {"Смартфоны", "400", "450"}
-        };
-    }
-
+public class SearchTest implements IAbstractTest {
     @Test(testName = "verify that results contains input text")
-    public void verifySearchTextTypeResultsTest() {
-        HomePage homePage = new HomePage(getDriver());
+    @Parameters({"browser"})
+    public void verifySearchTextTypeResultsTest(String browser) {
+        HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
         homePage.clickCookieButton();
         SearchSection searchSection = homePage.getSearchSection();
@@ -45,9 +33,10 @@ public class SearchTest extends AbstractTest {
         sa.assertAll();
     }
 
-    @Test(testName = "verify advance search that product brand will be found in results", dataProvider = "productBrandData")
-    public void verifyAdvanceSearchItemBrandTest(String product, String brand) {
-        HomePage homePage = new HomePage(getDriver());
+    @Parameters({"browser", "product", "brand"})
+    @Test(testName = "verify advance search that product brand will be found in results")
+    public void verifyAdvanceSearchItemBrandTest(String browser, String product, String brand) {
+        HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
         homePage.clickCookieButton();
         ProductMenuBar productMenuBar = homePage.getProductMenuBar();
@@ -62,9 +51,10 @@ public class SearchTest extends AbstractTest {
         sa.assertAll();
     }
 
-    @Test(testName = "verify advance search that product price in selected interval", dataProvider = "productPrice")
-    public void verifyAdvanceSearchPriceOfResultTest(String product, String minPrice, String maxPrice) {
-        HomePage homePage = new HomePage(getDriver());
+    @Parameters({"browser", "product1", "minPrice", "maxPrice"})
+    @Test(testName = "verify advance search that product price in selected interval")
+    public void verifyAdvanceSearchPriceOfResultTest(String browser, String product, String minPrice, String maxPrice) {
+        HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
         homePage.clickCookieButton();
         ProductMenuBar productMenuBar = homePage.getProductMenuBar();

@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name = "Verify 21vek.by" parallel="tests" thread-count="1">
+<suite name = "Verify 21vek.by" parallel="tests" thread-count="2">
 
     <test name = "ChromeTest - Account section test" parallel="methods" thread-count="2">
         <parameter name="browser" value="chrome"/>
@@ -11,6 +11,11 @@
     </test>
     <test name = "ChromeTest - Search test" parallel="methods" thread-count="4">
         <parameter name="browser" value="chrome"/>
+        <parameter name="product" value="Холодильники"/>
+        <parameter name="product1" value="Смартфоны"/>
+        <parameter name="brand" value="LG"/>
+        <parameter name="minPrice" value="400"/>
+        <parameter name="maxPrice" value="450"/>
         <classes>
             <class name = "com.solvd.webtesting.SearchTest" />
         </classes>
@@ -23,6 +28,11 @@
     </test>
     <test name = "FirefoxTest - Search test" parallel="methods" thread-count="4">
         <parameter name="browser" value="firefox"/>
+        <parameter name="product" value="Холодильники"/>
+        <parameter name="product1" value="Смартфоны"/>
+        <parameter name="brand" value="LG"/>
+        <parameter name="minPrice" value="400"/>
+        <parameter name="maxPrice" value="450"/>
         <classes>
             <class name = "com.solvd.webtesting.SearchTest" />
         </classes>

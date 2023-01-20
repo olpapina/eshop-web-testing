@@ -1,12 +1,11 @@
 package com.solvd.webtesting;
 
-import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.solvd.eshop.page.*;
+import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.webtesting.page.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class AccountSectionTest extends AbstractTest {
+public class AccountSectionTest implements IAbstractTest {
 
     @Test(testName = "verify that registration success with new email", enabled = false)
     public void verifyValidRegistrationTest() {
