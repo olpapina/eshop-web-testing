@@ -53,24 +53,4 @@ public class SideBar extends AbstractUIObject {
     public void typeMaxPriceField(String maxPrice) {
         maxPriceField.type(maxPrice, 5L);
     }
-
-    public ExtendedWebElement getShowAllButton() {
-        return showAllButton;
-    }
-
-    public ExtendedWebElement getShowProductsButton() {
-        return showProductsButton;
-    }
-
-    public ExtendedWebElement getMinPriceField() {
-        return minPriceField;
-    }
-
-    public ExtendedWebElement getMaxPriceField() {
-        return maxPriceField;
-    }
-
-    public List<ExtendedWebElement> getCheckboxes() {
-        return checkboxes;
-    }
 }

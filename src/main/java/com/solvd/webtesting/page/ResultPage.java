@@ -22,8 +22,4 @@ public class ResultPage extends AbstractPage {
                 .map(ExtendedWebElement::getText)
                 .collect(Collectors.toList());
     }
-
-    public List<ExtendedWebElement> getSearchResultItems() {
-        return searchResultItems;
-    }
 }

@@ -26,8 +26,4 @@ public class ProductMenuBar extends AbstractUIObject {
         requiredProduct.click();
         return new ProductPage(getDriver());
     }
-
-    public List<ExtendedWebElement> getItemProducts() {
-        return itemProducts;
-    }
 }

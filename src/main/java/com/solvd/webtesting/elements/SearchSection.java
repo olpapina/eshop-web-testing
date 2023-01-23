@@ -28,20 +28,4 @@ public class SearchSection extends AbstractUIObject {
         }
         return new ResultPage(getDriver());
     }
-
-    public ExtendedWebElement getSearchField() {
-        return searchField;
-    }
-
-    public void setSearchField(ExtendedWebElement searchField) {
-        this.searchField = searchField;
-    }
-
-    public ExtendedWebElement getSearchButton() {
-        return searchButton;
-    }
-
-    public void setSearchButton(ExtendedWebElement searchButton) {
-        this.searchButton = searchButton;
-    }
 }

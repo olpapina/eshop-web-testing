@@ -25,10 +25,10 @@ public class HomePage extends AbstractPage {
     private ExtendedWebElement userToolsTitle;
 
     @FindBy(xpath =  "//*[contains(@class,'styles_headerReactWrapper__3U15a') and contains(@class,'styles_headerReactWrapperAlt__3bM5y')]")
-    private com.solvd.webtesting.elements.ProductMenuBar ProductMenuBar;
+    private ProductMenuBar ProductMenuBar;
 
     @FindBy(xpath = "//*[contains(@class,'styles_headerReactLine__IWu_8') and contains(@class,'styles_headerReactLineSecond__tp1U0')]")
-    private com.solvd.webtesting.elements.SearchSection SearchSection;
+    private SearchSection SearchSection;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -58,26 +58,6 @@ public class HomePage extends AbstractPage {
 
     public String getAccountInfo() {
         return userToolsTitle.getText();
-    }
-
-    public ExtendedWebElement getCookieButton() {
-        return cookieButton;
-    }
-
-    public ExtendedWebElement getAccountMenu() {
-        return accountMenu;
-    }
-
-    public ExtendedWebElement getLoginButton() {
-        return loginButton;
-    }
-
-    public ExtendedWebElement getAccountMenuAfterLogin() {
-        return accountMenuAfterLogin;
-    }
-
-    public ExtendedWebElement getUserToolsTitle() {
-        return userToolsTitle;
     }
 
     public ProductMenuBar getProductMenuBar() {

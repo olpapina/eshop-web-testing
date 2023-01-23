@@ -11,6 +11,7 @@ import com.solvd.webtesting.elements.SearchSection;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
 import java.util.List;
 
 import static com.solvd.webtesting.utils.CapabilityFactory.getCapabilities;
@@ -18,7 +19,7 @@ import static com.solvd.webtesting.utils.CapabilityFactory.getCapabilities;
 public class SearchTest implements IAbstractTest {
     @Test(testName = "verify that results contains input text")
     @Parameters({"browser"})
-    public void verifySearchTextTypeResultsTest(String browser) {
+    public void verifySearchTextTypeResultsTest(String browser) throws IOException {
         HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
         homePage.clickCookieButton();
@@ -35,7 +36,7 @@ public class SearchTest implements IAbstractTest {
 
     @Parameters({"browser", "product", "brand"})
     @Test(testName = "verify advance search that product brand will be found in results")
-    public void verifyAdvanceSearchItemBrandTest(String browser, String product, String brand) {
+    public void verifyAdvanceSearchItemBrandTest(String browser, String product, String brand) throws IOException {
         HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
         homePage.clickCookieButton();
@@ -53,7 +54,7 @@ public class SearchTest implements IAbstractTest {
 
     @Parameters({"browser", "product1", "minPrice", "maxPrice"})
     @Test(testName = "verify advance search that product price in selected interval")
-    public void verifyAdvanceSearchPriceOfResultTest(String browser, String product, String minPrice, String maxPrice) {
+    public void verifyAdvanceSearchPriceOfResultTest(String browser, String product, String minPrice, String maxPrice) throws IOException {
         HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
         homePage.clickCookieButton();

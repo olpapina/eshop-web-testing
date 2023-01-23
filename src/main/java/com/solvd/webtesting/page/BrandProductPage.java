@@ -47,20 +47,4 @@ public class BrandProductPage extends AbstractPage {
                 .map(Double::parseDouble)
                 .collect(Collectors.toList());
     }
-
-    public List<ExtendedWebElement> getBrandProducts() {
-        return brandProducts;
-    }
-
-    public void setBrandProducts(List<ExtendedWebElement> brandProducts) {
-        this.brandProducts = brandProducts;
-    }
-
-    public List<ExtendedWebElement> getProductPrices() {
-        return productPrices;
-    }
-
-    public void setProductPrices(List<ExtendedWebElement> productPrices) {
-        this.productPrices = productPrices;
-    }
 }

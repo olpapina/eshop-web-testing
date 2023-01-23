@@ -49,8 +49,4 @@ public class LoginPage extends AbstractPage {
         }
         return new HomePage(getDriver());
     }
-
-    public ExtendedWebElement getRegistrationButton() {
-        return registrationButton;
-    }
 }

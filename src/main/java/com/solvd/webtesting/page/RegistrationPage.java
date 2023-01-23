@@ -28,12 +28,4 @@ public class RegistrationPage extends AbstractPage {
         }
         return new RegistrationPrivacyPage(getDriver());
     }
-
-    public ExtendedWebElement getEmailField() {
-        return emailField;
-    }
-
-    public ExtendedWebElement getContinueButton() {
-        return continueButton;
-    }
 }
