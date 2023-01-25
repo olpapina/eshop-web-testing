@@ -13,7 +13,6 @@ public class RegistrationPrivacyPage extends AbstractPage {
 
     public RegistrationPrivacyPage(WebDriver driver) {
         super(driver);
-        setPageURL("");
     }
 
     public SuccessRegistrationPage clickPrivacyButton() {

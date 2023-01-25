@@ -15,7 +15,6 @@ public class RegistrationPage extends AbstractPage {
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
-        setPageURL("");
     }
 
     public void typeEmail(String email) {

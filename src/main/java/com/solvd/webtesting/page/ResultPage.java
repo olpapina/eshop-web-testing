@@ -14,7 +14,6 @@ public class ResultPage extends AbstractPage {
 
     public ResultPage(WebDriver driver) {
         super(driver);
-        setPageURL("");
     }
 
     public List<String> getFullNames() {

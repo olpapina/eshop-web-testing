@@ -22,7 +22,6 @@ public class BrandProductPage extends AbstractPage {
 
     public BrandProductPage(WebDriver driver) {
         super(driver);
-        setPageURL("");
     }
 
     public List<String> getFullNames() {

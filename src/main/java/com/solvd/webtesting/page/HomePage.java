@@ -32,7 +32,6 @@ public class HomePage extends AbstractPage {
 
     public HomePage(WebDriver driver) {
         super(driver);
-        setPageURL("");
     }
 
     public void clickCookieButton() {

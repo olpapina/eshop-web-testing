@@ -11,7 +11,6 @@ public class ProductPage extends AbstractPage {
 
     public ProductPage(WebDriver driver) {
         super(driver);
-        setPageURL("");
     }
 
     public SideBar getSideBar() {
