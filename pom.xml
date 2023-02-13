@@ -12,28 +12,20 @@
     <url>https://github.com/olpapina/webtesting.git</url>
 
     <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <selenium.version>4.7.2</selenium.version>
+        <testng.version>7.6.1</testng.version>
+        <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
+        <slf4j.version>2.0.3</slf4j.version>
+        <apache.logger.version>2.18.0</apache.logger.version>
+        <webdrivermanager.version>5.3.1</webdrivermanager.version>
         <carina-core_version>8.0.4</carina-core_version>
         <carina-aws-s3.version>1.0.0</carina-aws-s3.version>
-        <java.version>11</java.version>
+        <suite>eshop-suite</suite>
         <zebrunner-agent.version>1.9.2</zebrunner-agent.version>
-        <suite>helloWorld</suite>
     </properties>
-
-    <repositories>
-        <!-- Uncomment only for testing any SNAPSHOT version of carina or zebrunner agent! -->
-        <repository>
-            <id>zebrunner_snapshots</id>
-            <name>zebrunner Snapshots</name>
-            <url>https://nexus.zebrunner.dev/repository/ce-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <dependencies>
         <dependency>
@@ -41,26 +33,38 @@
             <artifactId>carina-core</artifactId>
             <version>${carina-core_version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.zebrunner</groupId>
             <artifactId>carina-aws-s3</artifactId>
             <version>${carina-aws-s3.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
+            <version>${slf4j.version}</version>
         </dependency>
-        <!-- Log4j2 -->
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.17.1</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.17.1</version>
+            <version>${apache.logger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${apache.logger.version}</version>
         </dependency>
 
         <dependency>
@@ -128,7 +132,7 @@
                     <argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${project.build.directory}/test-classes/testng_suites/${suite}.xml</suiteXmlFile>
+                        <suiteXmlFile>${project.build.directory}/test-classes/testng-suites/${suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
