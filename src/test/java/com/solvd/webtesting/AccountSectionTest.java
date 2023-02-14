@@ -2,14 +2,29 @@ package com.solvd.webtesting;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.webtesting.page.*;
+import com.zebrunner.agent.core.annotation.TestRailCaseId;
+import com.zebrunner.agent.core.registrar.TestRail;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.io.IOException;
+
+import static com.solvd.webtesting.utils.CapabilityFactory.getCapabilities;
+
 public class AccountSectionTest implements IAbstractTest {
 
-    @Test(testName = "verify that registration success with new email", enabled = false)
-    public void verifyValidRegistrationTest() {
-        HomePage homePage = new HomePage(getDriver());
+    @BeforeSuite
+    public void setUp() {
+        TestRail.setSuiteId("185");
+        TestRail.setRunName("Olga");
+        TestRail.enableRealTimeSync();
+    }
+
+    @Test(testName = "verify that registration success with new email")
+    @TestRailCaseId("3518")
+    @Parameters("browser")
+    public void verifyValidRegistrationTest(String browser) throws IOException {
+        HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
         homePage.clickCookieButton();
         homePage.clickAccountMenu();
@@ -24,8 +39,10 @@ public class AccountSectionTest implements IAbstractTest {
     }
 
     @Test(testName = "verify enter into account", enabled = false)
-    public void verifyEnterIntoAccountTest() {
-        HomePage homePage = new HomePage(getDriver());
+    @TestRailCaseId("3519")
+    @Parameters("browser")
+    public void verifyEnterIntoAccountTest(String browser) throws IOException {
+        HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
         homePage.clickCookieButton();
         homePage.clickAccountMenu();

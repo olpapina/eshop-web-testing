@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class RegistrationPrivacyPage extends AbstractPage {
 
-    @FindBy(xpath = "//*[@class='styles_buttons__3IGzu']//*[contains(text(),'Соглашаюсь')]")
+    @FindBy(xpath = "//*[@class='Button-module__buttonText' and contains(text(),'Соглашаюсь')]")
     private ExtendedWebElement privacyButton;
 
     public RegistrationPrivacyPage(WebDriver driver) {

@@ -8,6 +8,8 @@ import com.solvd.webtesting.page.ProductPage;
 import com.solvd.webtesting.page.HomePage;
 import com.solvd.webtesting.page.ResultPage;
 import com.solvd.webtesting.elements.SearchSection;
+import com.zebrunner.agent.core.annotation.TestRailCaseId;
+import com.zebrunner.agent.core.registrar.TestRail;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
@@ -17,7 +19,16 @@ import java.util.List;
 import static com.solvd.webtesting.utils.CapabilityFactory.getCapabilities;
 
 public class SearchTest implements IAbstractTest {
+
+    @BeforeSuite
+    public void setUp() {
+        TestRail.setSuiteId("185");
+        TestRail.setRunName("Olga");
+        TestRail.enableRealTimeSync();
+    }
+
     @Test(testName = "verify that results contains input text")
+    @TestRailCaseId("3521")
     @Parameters({"browser"})
     public void verifySearchTextTypeResultsTest(String browser) throws IOException {
         HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
@@ -36,6 +47,7 @@ public class SearchTest implements IAbstractTest {
 
     @Parameters({"browser", "product", "brand"})
     @Test(testName = "verify advance search that product brand will be found in results")
+    @TestRailCaseId("3522")
     public void verifyAdvanceSearchItemBrandTest(String browser, String product, String brand) throws IOException {
         HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();
@@ -54,6 +66,7 @@ public class SearchTest implements IAbstractTest {
 
     @Parameters({"browser", "product1", "minPrice", "maxPrice"})
     @Test(testName = "verify advance search that product price in selected interval")
+    @TestRailCaseId("3523")
     public void verifyAdvanceSearchPriceOfResultTest(String browser, String product, String minPrice, String maxPrice) throws IOException {
         HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
         homePage.open();

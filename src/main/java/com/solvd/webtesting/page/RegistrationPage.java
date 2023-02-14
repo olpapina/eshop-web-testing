@@ -10,7 +10,7 @@ public class RegistrationPage extends AbstractPage {
     @FindBy(css = ".style_inputStyle__1dvyw")
     private ExtendedWebElement emailField;
 
-    @FindBy(css = ".styles_registerButton__18sPZ")
+    @FindBy(xpath = "//*[contains(text(),'Продолжить')]")
     private ExtendedWebElement continueButton;
 
     public RegistrationPage(WebDriver driver) {
