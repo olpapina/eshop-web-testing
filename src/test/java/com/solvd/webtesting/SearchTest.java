@@ -64,7 +64,7 @@ public class SearchTest implements IAbstractTest {
         sa.assertAll();
     }
 
-    @Parameters({"browser", "product1", "minPrice", "maxPrice"})
+    @Parameters({"browser", "product", "minPrice", "maxPrice"})
     @Test(testName = "verify advance search that product price in selected interval")
     @TestRailCaseId("3523")
     public void verifyAdvanceSearchPriceOfResultTest(String browser, String product, String minPrice, String maxPrice) throws IOException {

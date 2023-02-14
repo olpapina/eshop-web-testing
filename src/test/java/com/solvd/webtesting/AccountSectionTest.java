@@ -38,7 +38,7 @@ public class AccountSectionTest implements IAbstractTest {
         Assert.assertEquals(successMessage, "Вы зарегистрированы", "Registration success message wasn't displayed");
     }
 
-    @Test(testName = "verify enter into account", enabled = false)
+    @Test(testName = "verify enter into account")
     @TestRailCaseId("3519")
     @Parameters("browser")
     public void verifyEnterIntoAccountTest(String browser) throws IOException {
