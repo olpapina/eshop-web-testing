@@ -19,7 +19,7 @@
         <log4j-version>2.17.1</log4j-version>
         <java.version>11</java.version>
         <zebrunner-agent.version>1.9.3</zebrunner-agent.version>
-        <suite>testng</suite>
+        <SUITE>testng</SUITE>
     </properties>
 
     <dependencies>
@@ -43,7 +43,7 @@
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j-version}</version>
         </dependency>
-        <!-- Log4j2 -->
+<!--         Log4j2 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -120,7 +120,7 @@
                     <argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${project.build.directory}/test-classes/testng_suites/${suite}.xml</suiteXmlFile>
+                        <suiteXmlFile>${project.build.directory}/test-classes/testng_suites/${SUITE}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

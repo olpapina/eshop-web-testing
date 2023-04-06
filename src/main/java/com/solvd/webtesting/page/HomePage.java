@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends AbstractPage {
 
-    @FindBy(xpath = "//*[contains(@class,'styles_primaryButton__30pEq')]")
+    @FindBy(xpath = "//*[contains(@class,'Button-module__blue-primary')]")
     private ExtendedWebElement cookieButton;
 
     @FindBy(xpath = "//*[contains(@class,'styles_userToolsToggler__imcSl')]")
