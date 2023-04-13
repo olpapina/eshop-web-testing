@@ -20,7 +20,6 @@
         <java.version>11</java.version>
         <zebrunner-agent.version>1.9.3</zebrunner-agent.version>
         <SUITE>testng</SUITE>
-        <skipTests>false</skipTests>
     </properties>
 
     <dependencies>
@@ -118,7 +117,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M6</version>
                 <configuration>
-                    <skipTests>${skipTests}</skipTests>
                     <argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <suiteXmlFiles>
