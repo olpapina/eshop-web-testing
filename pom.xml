@@ -20,7 +20,7 @@
         <java.version>11</java.version>
         <zebrunner-agent.version>1.9.3</zebrunner-agent.version>
         <SUITE>testng</SUITE>
-        <skipTests>true</skipTests>
+        <skipTests>false</skipTests>
     </properties>
 
     <dependencies>
