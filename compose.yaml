@@ -9,10 +9,10 @@ services:
       - ".:/etc/selenoid"
       - "./target:/output"
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./target:/opt/selenoid/video"
-    environment:
-      - "OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/opt/selenoid/video"
-    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video"]
+#      - "./target:/opt/selenoid/video"
+#    environment:
+#      - "OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/opt/selenoid/video"
+#    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video"]
   selenoid-ui:
     image: "aerokube/selenoid-ui:latest"
     container_name: selenoid-ui
@@ -23,27 +23,27 @@ services:
     ports:
       - "8081:8080"
     command: ["--selenoid-uri", "http://ggr-ui:8888"]
-  chrome_100.0:
-    image: "sskorol/selenoid_chromium_vnc:100.0"
-    container_name: chrome_100.0
-    network_mode: bridge
-    links:
-      - selenoid
-      - selenoid-ui
-    volumes:
-      - "/dev/shm:/dev/shm"
-  firefox:
-    image: "selenoid/firefox:109.0"
-    network_mode: bridge
-    links:
-      - selenoid
-      - selenoid-ui
-  video:
-    image: selenoid/video-recorder:latest-release
-    network_mode: bridge
-    links:
-      - selenoid
-      - selenoid-ui
+#  chrome_100.0:
+#    image: "sskorol/selenoid_chromium_vnc:100.0"
+#    container_name: chrome_100.0
+#    network_mode: bridge
+#    links:
+#      - selenoid
+#      - selenoid-ui
+#    volumes:
+#      - "/dev/shm:/dev/shm"
+#  firefox:
+#    image: "selenoid/firefox:109.0"
+#    network_mode: bridge
+#    links:
+#      - selenoid
+#      - selenoid-ui
+#  video:
+#    image: selenoid/video-recorder:latest-release
+#    network_mode: bridge
+#    links:
+#      - selenoid
+#      - selenoid-ui
   ggr:
     image: aerokube/ggr:latest-release
     container_name: ggr
