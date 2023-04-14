@@ -17,8 +17,7 @@
 <!--            <class name = "com.solvd.webtesting.AccountSectionTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name = "Search test" parallel="methods" thread-count="2">
-        <parameter name="browser" value="chrome"/>
+    <test name = "Search test" parallel="tests" thread-count="2">
         <parameter name="product" value="Холодильники"/>
         <parameter name="product1" value="Смартфоны"/>
         <parameter name="brand" value="Beko"/>
