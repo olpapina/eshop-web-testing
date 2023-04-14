@@ -8,8 +8,8 @@
     <parameter name="jenkinsJobType" value="web"/>
     <parameter name="jenkinsEmail" value="test@qaprosoft.com"/>
     <parameter name="jenkinsEnvironments" value="DEMO"/>
-    <parameter name="jenkinsRegressionPipeline" value="nightly_regression, full_regression"/>
-    <parameter name="jenkinsRegressionMatrix" value="env: DEMO, branch: cron, browser: chrome; env:PROD, branch: prod, browser: firefox"/>
+    <parameter name="jenkinsRegressionPipeline" value="parallel_test_regression"/>
+    <parameter name="jenkinsRegressionMatrix" value="browser: chrome; browser: firefox"/>
 
 <!--    <test name = "ChromeTest - Account section test">-->
 <!--        <parameter name="browser" value="chrome"/>-->
