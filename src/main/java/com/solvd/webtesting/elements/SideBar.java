@@ -14,7 +14,7 @@ public class SideBar extends AbstractUIObject {
     @FindBy(xpath = ".//*[contains(@class,'j-plus__toggle g-pseudo_href')]")
     private ExtendedWebElement showAllButton;
 
-    @FindBy(xpath = ".//*[contains(@class, 'filter__attrs cr-filter__producers')]//*[@class='filter-attr__value']")
+    @FindBy(xpath = ".//*[contains(@class, 'cr-filter__2col g-box_lseparator')]//*[@class='filter-attr__value']")
     private List<ExtendedWebElement> checkboxes;
 
     @FindBy(css = "#j-filter__btn")

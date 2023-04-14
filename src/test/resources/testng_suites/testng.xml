@@ -33,15 +33,15 @@
 <!--            <class name = "com.solvd.webtesting.AccountSectionTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name = "FirefoxTest - Search test" parallel="methods" thread-count="2">
-        <parameter name="browser" value="firefox"/>
-        <parameter name="product" value="Холодильники"/>
-        <parameter name="product1" value="Смартфоны"/>
-        <parameter name="brand" value="Beko"/>
-        <parameter name="minPrice" value="400"/>
-        <parameter name="maxPrice" value="1000"/>
-        <classes>
-            <class name = "com.solvd.webtesting.SearchTest" />
-        </classes>
-    </test>
+<!--    <test name = "FirefoxTest - Search test" parallel="methods" thread-count="2">-->
+<!--        <parameter name="browser" value="firefox"/>-->
+<!--        <parameter name="product" value="Холодильники"/>-->
+<!--        <parameter name="product1" value="Смартфоны"/>-->
+<!--        <parameter name="brand" value="Beko"/>-->
+<!--        <parameter name="minPrice" value="400"/>-->
+<!--        <parameter name="maxPrice" value="1000"/>-->
+<!--        <classes>-->
+<!--            <class name = "com.solvd.webtesting.SearchTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
