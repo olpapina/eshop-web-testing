@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends AbstractPage {
 
-    @FindBy(xpath = "//*[contains(@class,'Button-module__blue-primary')]")
+    @FindBy(xpath = "//*[contains(@class,'Button-module__blue-primary')]//*[contains(text(),'Принять')]")
     private ExtendedWebElement cookieButton;
 
     @FindBy(xpath = "//*[contains(@class,'styles_userToolsToggler__imcSl')]")
@@ -35,7 +35,7 @@ public class HomePage extends AbstractPage {
     }
 
     public void clickCookieButton() {
-        cookieButton.click();
+        cookieButton.click(5L);
     }
 
     public void clickAccountMenu() {
