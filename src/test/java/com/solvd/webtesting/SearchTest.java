@@ -46,7 +46,7 @@ public class SearchTest implements IAbstractTest {
     }
 
     @Parameters({"browser", "product", "brand"})
-    @Test(testName = "verify advance search that product brand will be found in results", enabled = false)
+    @Test(testName = "verify advance search that product brand will be found in results")
     @TestRailCaseId("3522")
     public void verifyAdvanceSearchItemBrandTest(String browser, String product, String brand) throws IOException {
         HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
@@ -65,7 +65,7 @@ public class SearchTest implements IAbstractTest {
     }
 
     @Parameters({"browser", "product", "minPrice", "maxPrice"})
-    @Test(testName = "verify advance search that product price in selected interval", enabled = false)
+    @Test(testName = "verify advance search that product price in selected interval")
     @TestRailCaseId("3523")
     public void verifyAdvanceSearchPriceOfResultTest(String browser, String product, String minPrice, String maxPrice) throws IOException {
         HomePage homePage = new HomePage(getDriver(browser, getCapabilities(browser)));
