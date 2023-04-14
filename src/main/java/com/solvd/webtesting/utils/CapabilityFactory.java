@@ -12,17 +12,12 @@ public class CapabilityFactory {
     private static final Logger LOGGER = LogManager.getLogger(CapabilityFactory.class);
     public static MutableCapabilities mutableCapabilities;
 
-    public static MutableCapabilities getCapabilities(String browser) throws IOException {
-        switch (browser) {
-            case "firefox":
-                mutableCapabilities = new FirefoxCapabilities().getCapability("FirefoxTest");
-                break;
-            case "chrome":
-                mutableCapabilities = new ChromeCapabilities().getCapability("ChromeTest");
-                break;
-            default:
-                mutableCapabilities = new ChromeCapabilities().getCapability("ChromeTest");
-                throw new IOException("browser : " + browser + " is invalid, Launching Chrome as browser of choice..");
+    public static MutableCapabilities getCapabilities(String browserName) throws IOException {
+        MutableCapabilities mutableCapabilities = null;
+        if (browserName.equals("chrome")) {
+            mutableCapabilities = new ChromeCapabilities().getCapability("ChromeTest");
+        } else if (browserName.equals("firefox")) {
+            mutableCapabilities = new FirefoxCapabilities().getCapability("FirefoxTest");
         }
         return mutableCapabilities;
     }
