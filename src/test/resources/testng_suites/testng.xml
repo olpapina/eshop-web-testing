@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name = "Verify 21vek.by">
+<suite name = "Verify 21vek.by" parallel="tests">
 <!--    Don't use parallel tests because 21vek.by block ID about 2 weeks-->
     <parameter name="suiteOwner" value="qpsdemo"/>
     <parameter name="jenkinsJobName" value="web-tests"/>
@@ -9,7 +9,7 @@
     <parameter name="jenkinsEmail" value="test@qaprosoft.com"/>
     <parameter name="jenkinsEnvironments" value="DEMO"/>
     <parameter name="jenkinsRegressionPipeline" value="parallel_test_regression"/>
-    <parameter name="jenkinsRegressionMatrix" value="browser: chrome; browser: firefox"/>
+    <parameter name="jenkinsRegressionMatrix" value="browser:chrome; browser:firefox"/>
 
 <!--    <test name = "ChromeTest - Account section test">-->
 <!--        <parameter name="browser" value="chrome"/>-->
@@ -17,7 +17,7 @@
 <!--            <class name = "com.solvd.webtesting.AccountSectionTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name = "Search test" parallel="tests" thread-count="2">
+    <test name = "Search test">
         <parameter name="product" value="Холодильники"/>
         <parameter name="product1" value="Смартфоны"/>
         <parameter name="brand" value="Beko"/>
@@ -27,21 +27,4 @@
             <class name = "com.solvd.webtesting.SearchTest" />
         </classes>
     </test>
-<!--    <test name = "FirefoxTest - Account section test">-->
-<!--        <parameter name="browser" value="firefox"/>-->
-<!--        <classes>-->
-<!--            <class name = "com.solvd.webtesting.AccountSectionTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name = "FirefoxTest - Search test" parallel="methods" thread-count="2">-->
-<!--        <parameter name="browser" value="firefox"/>-->
-<!--        <parameter name="product" value="Холодильники"/>-->
-<!--        <parameter name="product1" value="Смартфоны"/>-->
-<!--        <parameter name="brand" value="Beko"/>-->
-<!--        <parameter name="minPrice" value="400"/>-->
-<!--        <parameter name="maxPrice" value="1000"/>-->
-<!--        <classes>-->
-<!--            <class name = "com.solvd.webtesting.SearchTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>
