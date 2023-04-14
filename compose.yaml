@@ -9,10 +9,10 @@ services:
       - ".:/etc/selenoid"
       - "./target:/output"
       - "/var/run/docker.sock:/var/run/docker.sock"
-#      - "./target:/opt/selenoid/video"
-#    environment:
-#      - "OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/opt/selenoid/video"
-    command: ["-conf", "/etc/selenoid/browsers.json"]
+      - "./target:/opt/selenoid/video"
+    environment:
+      - "OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/opt/selenoid/video"
+    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video"]
   selenoid-ui:
     image: "aerokube/selenoid-ui:latest"
     container_name: selenoid-ui
@@ -38,12 +38,12 @@ services:
 #    links:
 #      - selenoid
 #      - selenoid-ui
-#  video:
-#    image: selenoid/video-recorder:latest-release
-#    network_mode: bridge
-#    links:
-#      - selenoid
-#      - selenoid-ui
+  video:
+    image: selenoid/video-recorder:latest-release
+    network_mode: bridge
+    links:
+      - selenoid
+      - selenoid-ui
   ggr:
     image: aerokube/ggr:latest-release
     container_name: ggr
