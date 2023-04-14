@@ -9,7 +9,7 @@
     <parameter name="jenkinsEmail" value="test@qaprosoft.com"/>
     <parameter name="jenkinsEnvironments" value="DEMO"/>
     <parameter name="jenkinsRegressionPipeline" value="nightly_regression, full_regression"/>
-
+    <parameter name="jenkinsRegressionMatrix" value="env: DEMO, branch: cron, browser: chrome; env:PROD, branch: prod, browser: firefox"/>
 
 <!--    <test name = "ChromeTest - Account section test">-->
 <!--        <parameter name="browser" value="chrome"/>-->
@@ -17,7 +17,7 @@
 <!--            <class name = "com.solvd.webtesting.AccountSectionTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
-    <test name = "ChromeTest - Search test" parallel="methods" thread-count="2">
+    <test name = "Search test" parallel="methods" thread-count="2">
         <parameter name="browser" value="chrome"/>
         <parameter name="product" value="Холодильники"/>
         <parameter name="product1" value="Смартфоны"/>
